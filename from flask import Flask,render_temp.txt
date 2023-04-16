@@ -1,0 +1,37 @@
+from flask import Flask,render_template,Response,request
+import pickle
+from pandas import *
+
+model_heart=pickle.load(open(r"C:\Users\suhas\OneDrive\Desktop\model_heart.pkl",'rb'))
+
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return render_template("heart_disease.html")
+
+@app.route('/result', methods=['post'])
+def heart():
+    a = request.form.get('a')
+    b = request.form.get('b')
+    c = request.form.get('c')
+    d = request.form.get('d')
+    e = request.form.get('e')
+    f = request.form.get('f')
+    g = request.form.get('g')
+    h = request.form.get('h')
+    i = request.form.get('i')
+    j = request.form.get('j')
+    k = request.form.get('k')
+    l = request.form.get('l')
+    m = request.form.get('m')
+    arr = DataFrame([a, b, c, d, e, f, g, h, i, j, k, l, m, ]).transpose()
+    pred = model_heart.predict(arr)
+    if str(pred) == '[1]':
+        res = "You have a high probability of having heart disease"
+    else:
+        res = "You are healthy, No heart Disease detected"
+    return render_template('heart_disease.html', data= res)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

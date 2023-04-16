@@ -1,0 +1,82 @@
+<html>
+<head>
+<link rel="stylesheet" href="{{url_for('static', filename='manju.css')}}">
+</head>
+
+<body>
+
+<div class="le2">
+        
+        <div class="le1">
+            <h1>Heart Disease Prediction Using ML</h1>
+            <form action="{{url_for('heart')}}" method="POST">
+                <div class="item1">
+                    <div class="inp">
+                        <label for="">Age</label><br>
+                        <input type="text" name="a" required>
+                    </div>
+                    <div class="inp">
+                        <label for="">Sex</label><br>
+                        <input type="text" name="b" required>
+                    </div>
+                    <div class="inp">
+                        <label for="">Chest Pain types</label><br>
+                        <input type="text" name="c" required>
+                    </div>
+                </div>
+                <div class="item1">
+                    <div class="inp">
+                        <label for="">Resting Blood Pressure</label><br>
+                        <input type="text" name="d" required>
+                    </div>
+                    <div class="inp">
+                        <label for="">Serum Cholestral in mg/dl</label><br>
+                        <input type="text" name="e" required>
+                    </div>
+                    <div class="inp">
+                        <label for="">Fasting Blood Sugar>120 mg/dl</label><br>
+                        <input type="text" name="f" required>
+                    </div>
+                </div>
+                <div class="item1">
+                    <div class="inp">
+                        <label for="">Resting Electrodiagraphic results</label><br>
+                        <input type="text" name="g" required>
+                    </div>
+                    <div class="inp">
+                        <label for="">Maximum Heart Rate acheived</label><br>
+                        <input type="text" name="h" required>
+                    </div>
+                    <div class="inp">
+                        <label for="">Exercise Induced Angia</label><br>
+                        <input type="text" name="i" required>
+                    </div>
+                </div>
+                <div class="item1">
+                    <div class="inp">
+                        <label for="">ST depression</label><br>
+                        <input type="text" name="j" required>
+                    </div>
+                    <div class="inp">
+                        <label for="">Slope of the peak</label><br>
+                        <input type="text" name="k" required>
+                    </div>
+                    <div class="inp">
+                        <label for="">Major vessels</label><br>
+                        <input type="text" name="l" required>
+                    </div>
+                </div>
+                <div class="item1">
+                    <div class="inp">
+                        <label for="">Reversable defect</label><br>
+                        <input type="text" name="m" required>
+                    </div>
+                </div>
+
+                <button value="heart">Heart Test Result</button><br>
+
+            </form>
+
+            <h3 id="result" <b>{{data}}</b></h3>
+
+        </div>
